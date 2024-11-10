@@ -37,7 +37,7 @@ body {
 
 .logo {
     width: 400px;
-    height: 300px;
+    height: 400px;
     background: url('img/logo_SM.png');
     background-position: center;
     background-size: cover;
@@ -49,13 +49,13 @@ body {
 
 /* Modificación de la animación de la segunda imagen */
 .slow-rotation {
-    width: 400px;  /* Mismo tamaño que el logo original */
-    height: 300px; /* Mismo tamaño que el logo original */
+    width: 600px;  /* Mismo tamaño que el logo original */
+    height: 600px; /* Mismo tamaño que el logo original */
     background: url('img/logo_S.png'); /* Segunda imagen */
     background-position: center;
     background-size: cover;
     position: absolute;
-    top: -100px;  /* Alineación vertical para que esté centrada */
+    top: -300px;  /* Alineación vertical para que esté centrada */
     filter: drop-shadow(0px 5px 10px #FFA500);
     animation: slowRotate 13s linear infinite; /* Rota lentamente */
 }

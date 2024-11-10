@@ -9,8 +9,12 @@
 </head>
 <body>
     <!-- Video de fondo -->
-    <video autoplay muted loop class="background-video">
+    <video autoplay muted class="background-video" id="video1">
         <source src="video.mp4" type="video/mp4">
+        Tu navegador no soporta video HTML5.
+    </video>
+    <video muted class="background-video" id="video2" style="display: none;" loop>
+        <source src="video-loop2.mp4" type="video/mp4">
         Tu navegador no soporta video HTML5.
     </video>
 
@@ -37,7 +41,8 @@
             const audio = document.getElementById("background-audio");
             audio.play();
         }
-      // Cambiar la imagen y ajustar la rotación
+
+        // Cambiar la imagen y ajustar la rotación
         setTimeout(() => {
             document.getElementById("logo1").style.display = "none";  // Oculta la primera imagen
             document.getElementById("logo2").style.display = "block";  // Muestra la segunda imagen
@@ -47,16 +52,24 @@
         setTimeout(() => {
             document.getElementById("logo2").style.animationPlayState = "paused";  // Detiene la rotación de la segunda imagen
         }, 25000);  // Al segundo 20
-        
-    </script>
 
-<script>
-    window.onload = function() {
-        setTimeout(() => {
-            const audio = document.getElementById("background-audio");
-            audio.play();
-        }, 100); // Retraso de 100ms para evitar restricciones de autoplay
-    }
-</script>
+        // Manejar la transición de video1 a video2
+        const video1 = document.getElementById("video1");
+        const video2 = document.getElementById("video2");
+
+        video1.onended = function() {
+            video1.style.display = "none";
+            video2.style.display = "block";
+            video2.play();
+        };
+
+        // Reproduce el audio al cargar la página (con breve retraso para evitar restricciones)
+        window.onload = function() {
+            setTimeout(() => {
+                const audio = document.getElementById("background-audio");
+                audio.play();
+            }, 100); // Retraso de 100ms para evitar restricciones de autoplay
+        };
+    </script>
 </body>
 </html>
